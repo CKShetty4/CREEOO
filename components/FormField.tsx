@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import {icons} from '../constants';
 
 interface FormFieldProps {
-    title: string;
+    title?: string;
     value: string;
   placeholder?: string;
   handleChangeText: (text: string) => void;
@@ -39,10 +39,10 @@ value={value}
 placeholder={placeholder}
 placeholderTextColor="#AAAAAA"
 onChangeText={handleChangeText}
-secureTextEntry={title === 'Password' && !showPassword}
+secureTextEntry={placeholder === 'Password' && !showPassword}
 />
-{title === 'Password' && (
-    <TouchableOpacity onPress={()=>setshowPassword(!showPassword)}>
+{placeholder === 'Password' && (
+    <TouchableOpacity onPress={()=>setshowPassword(!showPassword)} >
         <Image source={!showPassword? icons.view:icons.hide} className="w-6 h-6" resizeMode="contain"/> 
     </TouchableOpacity>
 )}

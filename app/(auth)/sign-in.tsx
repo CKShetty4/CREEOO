@@ -52,20 +52,20 @@ const SignIn = () => {
           <View className='         items-center
 '>
             <FormField
-            title="Email"
+            placeholder='Email'
             value={form.email}
             handleChangeText={(e) => setForm({ ...form, email: e })}
-            otherStyles="mt-7"
+            otherStyles="mt-3"
             keyboardType="email-address"
           />
             <FormField
-            title="Password"
+            placeholder='Password'
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
-            otherStyles="mt-7"
+            otherStyles="mt-1"
           />
           </View>
-          <Link href={{ pathname: "/sign-up" }} className='text-blue-500 text-sm mb-4'>Forgot Password ?</Link>
+          <Link href={{ pathname: "/sign-up" }} className='text-blue-500 text-sm mt-2 mb-4'>Forgot Password ?</Link>
           <View className='justify-center items-center'>
           <CustomButton
               title="SignIn"

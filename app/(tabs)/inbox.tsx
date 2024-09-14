@@ -1,75 +1,60 @@
-// import { View, Text } from 'react-native'
-// import React from 'react'
-
-// const Inbox = () => {
-//   return (
-//     <View className='bg-primary-100 h-full items-center justify-center'>
-//       <Text className='text-3xl font-HowdyParty'>Inbox</Text>
-//       <Text className='text-3xl font-Love'>Inbox</Text>
-//       <Text className='text-5xl font-RogshireDemo'>Inbox</Text>
-//     </View>
-//   )
-// }
-
-// export default Inbox
-
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 
 const Inbox = () => {
   const [activeTab, setActiveTab] = useState('requests');
 
-  const handleTabPress = (tab: string) => {
+  const handleTabPress = (tab: any) => {
     setActiveTab(tab);
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.tabs}>
+    <View className='h-full mt-5 bg-gray-100'>
+      <View className='flex-row bg-gray-200 p-4'>
         <TouchableOpacity
-          style={[styles.tab, activeTab === 'requests' && styles.activeTab]}
+          className={`flex-1 items-center p-4 border border-gray-300 ${activeTab === 'requests' && 'bg-blue-500'}`}
           onPress={() => handleTabPress('requests')}
         >
-          <Text style={styles.tabText}>Requests</Text>
+          <Text className='text-lg font-bold text-gray-800'>Requests</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.tab, activeTab === 'inbox' && styles.activeTab]}
+          className={`flex-1 items-center p-4 border border-gray-300 ${activeTab === 'inbox' && 'bg-blue-500'}`}
           onPress={() => handleTabPress('inbox')}
         >
-          <Text style={styles.tabText}>Inbox</Text>
+          <Text className='text-lg font-bold text-gray-800'>Inbox</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.tab, activeTab === 'friends' && styles.activeTab]}
+          className={`flex-1 items-center p-4 border border-gray-300 ${activeTab === 'friends' && 'bg-blue-500'}`}
           onPress={() => handleTabPress('friends')}
         >
-          <Text style={styles.tabText}>Friends</Text>
+          <Text className='text-lg font-bold text-gray-800'>Friends</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.content}>
+      <View className='flex-1 p-4'>
         {activeTab === 'requests' && (
-          <ScrollView style={styles.scroll}>
+          <ScrollView className='flex-1'>
             {/* Content for Requests */}
-            <Text style={styles.item}>Request 1</Text>
-            <Text style={styles.item}>Request 2</Text>
-            <Text style={styles.item}>Request 3</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Request 1</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Request 2</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Request 3</Text>
             {/* ... more requests */}
           </ScrollView>
         )}
         {activeTab === 'inbox' && (
-          <ScrollView style={styles.scroll}>
+          <ScrollView className='flex-1'>
             {/* Content for Inbox */}
-            <Text style={styles.item}>Message 1</Text>
-            <Text style={styles.item}>Message 2</Text>
-            <Text style={styles.item}>Message 3</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Message 1</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Message 2</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Message 3</Text>
             {/* ... more messages */}
           </ScrollView>
         )}
         {activeTab === 'friends' && (
-          <ScrollView style={styles.scroll}>
+          <ScrollView className='flex-1'>
             {/* Content for Friends */}
-            <Text style={styles.item}>Friend 1</Text>
-            <Text style={styles.item}>Friend 2</Text>
-            <Text style={styles.item}>Friend 3</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Friend 1</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Friend 2</Text>
+            <Text className='text-lg mb-4 p-4 bg-white rounded-lg shadow-md'>Friend 3</Text>
             {/* ... more friends */}
           </ScrollView>
         )}
@@ -77,45 +62,5 @@ const Inbox = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  tabs: {
-    flexDirection: 'row',
-    backgroundColor: '#f2f2f2',
-    padding: 10,
-  },
-  tab: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
-  },
-  activeTab: {
-    backgroundColor: '#007bff',
-    borderColor: '#007bff',
-  },
-  tabText: {
-    color: '#333',
-    fontWeight: 'bold',
-  },
-  content: {
-    flex: 1,
-    padding: 10,
-  },
-  scroll: {
-    flex: 1,
-  },
-  item: {
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    elevation: 2,
-  },
-});
 
 export default Inbox;
